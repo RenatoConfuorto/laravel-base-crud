@@ -8,9 +8,9 @@
 <ul>
   @foreach ($comics_list as $comic)
       <li>
-        <h2>{{ $comic['title'] }}</h2>
+        <h2><a href="{{ route('comics.show', ['comic' => $comic['id']]) }}">{{ $comic['title'] }}</a></h2>
         <h3>{{ $comic['series'] }}</h3>
-        <p>{{ $comic['description'] }}</p>
+        <p>{!! $comic['description'] !!}</p>
         <ul>
           <li>Prezzo: {{ $comic['price'] }}</li>
           <li>Data di pubblicazione: {{ $comic['sale_date'] }}</li>

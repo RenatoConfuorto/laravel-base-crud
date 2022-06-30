@@ -1,1 +1,23 @@
-//
+@import '~bootstrap/scss/bootstrap';
+
+.nav-bar{
+
+  ul{
+    list-style: none;
+
+    li{
+
+      display: inline-block;
+      margin: 0 10px;
+    }
+  }
+}
+
+.form{
+  width: 50%;
+  margin: 0 auto;
+  
+  h1{
+    text-align: center;
+  }
+}
