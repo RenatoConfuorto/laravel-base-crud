@@ -12149,13 +12149,30 @@ fieldset:disabled .btn {
   }
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-bar {
+  height: 75px;
+  background-color: lightgray;
+}
+
 .nav-bar ul {
   list-style: none;
 }
 
 .nav-bar ul li {
+  line-height: 75px;
+  font-size: 1.5rem;
+  font-weight: bold;
   display: inline-block;
   margin: 0 10px;
+}
+
+.nav-bar ul li a:hover {
+  color: #d63384;
 }
 
 .form {
@@ -12165,6 +12182,43 @@ fieldset:disabled .btn {
 
 .form h1,
 .form .h1 {
+  margin-top: 40px;
   text-align: center;
+}
+
+.form .form-group {
+  margin-bottom: 15px;
+}
+
+.comics-list {
+  padding: 25px 40px;
+}
+
+.comics-list .comic {
+  border-bottom: 1px solid black;
+  margin-bottom: 15px;
+}
+
+.comic-det {
+  padding: 25px 40px;
+}
+
+.comic-det .title {
+  margin-bottom: 5px;
+}
+
+.comic-det .series {
+  margin-bottom: 10px;
+}
+
+.comic-det img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.comic-det .description {
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 

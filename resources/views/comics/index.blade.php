@@ -5,9 +5,9 @@
 @endsection
 
 @section('main-content')
-<ul>
+<ul class="comics-list">
   @foreach ($comics_list as $comic)
-      <li>
+      <li class="comic">
         <h2><a href="{{ route('comics.show', ['comic' => $comic['id']]) }}">{{ $comic['title'] }}</a></h2>
         <h3>{{ $comic['series'] }}</h3>
         <p>{!! $comic['description'] !!}</p>
