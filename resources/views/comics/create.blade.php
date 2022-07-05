@@ -8,12 +8,22 @@
     <div class="form">
         <h1>Aggiungi un fumetto</h1>
         <form action="{{ route('comics.store') }}" method="POST">
-          @csrf
+            @csrf
+
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <div class="form-group">
                 <label for="inputTitle">Titolo</label>
-                <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp"
-                    placeholder="Titolo" name="title">
+                <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Titolo"
+                    name="title">
             </div>
             <div class="form-group">
                 <label for="inputDescription">Descrizione</label>
