@@ -14,5 +14,11 @@
             <p class="price">Prezzo: ${{ $comic['price'] }}</p>
             <p>Data di rilascio: {{ $comic['sale_date'] }}</p>
         </div>
+
+        <form action="{{ route('comics.destroy', ['comic' => $comic['id']]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+        <button class="btn btn-danger">Elimina</button>
+        </form>
     </div>
 @endsection
