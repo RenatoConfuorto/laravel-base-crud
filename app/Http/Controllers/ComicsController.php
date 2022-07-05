@@ -37,15 +37,7 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:100',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required|max:8',
-            'series' => 'required|max:50',
-            'sale_date' => 'required',
-            'type' => 'required|max:50',
-        ]);
+        $request->validate($this->validateElements());
 
         $data = $request->all();
         $comic = new Comics();
@@ -82,7 +74,8 @@ class ComicsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = Comics::findOrFail($id);
+        return view('comics.edit', compact('comic'));
     }
 
     /**
@@ -94,7 +87,13 @@ class ComicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate($this->validateElements());
+
+        $data = $request->all();
+        $comic = Comics::findOrFail($id);
+
+        $comic->update($data);
+        return redirect()->route('comics.show', ['comic' => $id]);
     }
 
     /**
@@ -108,5 +107,17 @@ class ComicsController extends Controller
         $comic = Comics::findOrFail($id);
         $comic->delete();
         return redirect()->route('comics.index');
+    }
+
+    private function validateElements(){
+        return [
+            'title' => 'required|max:100',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required|max:8',
+            'series' => 'required|max:50',
+            'sale_date' => 'required',
+            'type' => 'required|max:50',
+        ];
     }
 }

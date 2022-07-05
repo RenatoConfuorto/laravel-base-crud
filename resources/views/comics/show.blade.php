@@ -15,6 +15,7 @@
             <p>Data di rilascio: {{ $comic['sale_date'] }}</p>
         </div>
 
+        <a href="{{ route('comics.edit', ['comic' => $comic['id']]) }}">Modifica</a>
         <form action="{{ route('comics.destroy', ['comic' => $comic['id']]) }}" method="POST">
             @csrf
             @method('DELETE')
